@@ -39,14 +39,14 @@ async def subscribe(app, message):
       try:
          user = await app.get_chat_member(update_channel, message.from_user.id)
          if user.status == "kicked":
-            await message.reply_text("You are Banned. Contact -- @devgaganin")
+            await message.reply_text("You are Banned. Contact -- @ViperROX")
             return 1
       except UserNotParticipant:
         caption = f"Join our channel to use the bot"
         await message.reply_photo(photo="https://graph.org/file/d44f024a08ded19452152.jpg",caption=caption, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Join Now...", url=f"{url}")]]))
         return 1
       except Exception:
-         await message.reply_text("Something Went Wrong. Contact us @devgaganin...")
+         await message.reply_text("Something Went Wrong. Contact us @ViperROX ...")
          return 1
 async def get_seconds(time_string):
     def extract_value_and_unit(ts):
@@ -85,7 +85,9 @@ PROGRESS_BAR = """\n
 │ **__Completed:__** {1}/{2}
 │ **__Bytes:__** {0}%
 │ **__Speed:__** {3}/s
-│ **__ETA:__** {4}
+│ **__Time:__** {4}
+│ **©Powered By Team**
+│ **🇩 🇮 🇬 🇬 🇮 🇩 🇮 🇬 🇮**
 ╰─────────────────────╯
 """
 async def progress_bar(current, total, ud_type, message, start):
@@ -239,7 +241,7 @@ async def progress_callback(current, total, progress_message):
     if current_time - last_update_time >= 10 or percent % 10 == 0:
         completed_blocks = int(percent // 10)
         remaining_blocks = 10 - completed_blocks
-        progress_bar = "♦" * completed_blocks + "◇" * remaining_blocks
+        progress_bar = "🟢" * completed_blocks + "◇" * remaining_blocks
         current_mb = current / (1024 * 1024)  
         total_mb = total / (1024 * 1024)      
         await progress_message.edit(
@@ -250,7 +252,8 @@ async def progress_callback(current, total, progress_message):
     f"│ **__Progress:__** {percent:.2f}%\n"
     f"│ **__Uploaded:__** {current_mb:.2f} MB / {total_mb:.2f} MB\n"
     f"╰──────────────────╯\n\n"
-    f"**__Powered by Team SPY__**"
+    f"**Powered by Team**"
+    f"**🇩 🇮 🇬 🇬 🇮 🇩 🇮 🇬 🇮**"
         )
 
         last_update_time = current_time
@@ -270,7 +273,7 @@ async def prog_bar(current, total, ud_type, message, start):
         estimated_total_time = TimeFormatter(milliseconds=estimated_total_time)
 
         progress = "{0}{1}".format(
-            ''.join(["♦" for i in range(math.floor(percentage / 10))]),
+            ''.join(["🟢" for i in range(math.floor(percentage / 10))]),
             ''.join(["◇" for i in range(10 - math.floor(percentage / 10))]))
 
         tmp = progress + PROGRESS_BAR.format( 
