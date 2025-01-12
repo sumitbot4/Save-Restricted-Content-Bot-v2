@@ -87,7 +87,7 @@ async def single_link(_, message):
         
     freecheck = await chk_user(message, user_id)
     if freecheck == 1 and FREEMIUM_LIMIT == 0 and user_id not in OWNER_ID:
-        await message.reply("Freemium service is currently not available. Upgrade to premium for access.")
+        await message.reply("Free service is currently not available. Upgrade to premium for access.")
         return
     
     # Call the set_interval function to handle the cooldown
@@ -138,7 +138,7 @@ async def single_link(_, message):
         if data and data.get("session"):
             session = data.get("session")
             try:
-                device = 'Vivo Y20'
+                device = 'Diggi Digi'
                 userbot = Client(":userbot:", api_id=API_ID, api_hash=API_HASH, device_model=device, session_string=session)
                 await userbot.start()                
             except:
@@ -246,13 +246,13 @@ async def batch_link(_, message):
         return
         
  # Create an inline button for the channel link
-    join_button = InlineKeyboardButton("Join Channel", url="https://t.me/team_spy_pro")
+    join_button = InlineKeyboardButton("Join Channel", url="https://t.me/Team_Diggi_Digi")
     keyboard = InlineKeyboardMarkup([[join_button]])
 
     # Send and Pin message to indicate the batch process has started
     pin_msg = await app.send_message(
         user_id,
-        "Batch process started ⚡\n__Processing: 0/{cl}__\n\n**__Powered by Team SPY__**",
+        "Batch process started ⚡\n__Processing: 0/{cl}__\n\n**Powered by Team**\n**🇩 🇮 🇬 🇬 🇮 🇩 🇮 🇬 🇮**",
         reply_markup=keyboard
     )
     try:
@@ -296,7 +296,7 @@ async def batch_link(_, message):
                         msg = await app.send_message(message.chat.id, f"Processing...")
                         await process_and_upload_link(userbot, user_id, msg.id, link, 0, message)
                         await pin_msg.edit_text(
-                        f"Batch process started ⚡\n__Processing: {i - cs + 1}/{cl}__\n\n**__Powered by Team SPY__**",
+                        f"Batch process started ⚡\n__Processing: {i - cs + 1}/{cl}__\n\n**Powered by Team**\n**🇩 🇮 🇬 🇬 🇮 🇩 🇮 🇬 🇮**",
                         reply_markup=keyboard
                         )
                 except Exception as e:
@@ -307,7 +307,7 @@ async def batch_link(_, message):
             await set_interval(user_id, interval_minutes=20)
             await app.send_message(message.chat.id, "Batch completed successfully! 🎉")
             await pin_msg.edit_text(
-                        f"Batch process completed for {cl} messages enjoy 🌝\n\n**__Powered by Team SPY__**",
+                        f"Batch process completed for {cl} messages enjoy 🌝\n\n**Powered by Team SPY**\n**🇩 🇮 🇬 🇬 🇮 🇩 🇮 🇬 🇮**",
                         reply_markup=keyboard
             )
             return
@@ -316,7 +316,7 @@ async def batch_link(_, message):
         data = await db.get_data(user_id)
         if data and data.get("session"):
             session = data.get("session")
-            device = 'Vivo Y20'
+            device = 'Diggi Digi'
             userbot = Client(
                 ":userbot:",
                 api_id=API_ID,
@@ -344,7 +344,7 @@ async def batch_link(_, message):
                             msg = await app.send_message(message.chat.id, f"Processing...")
                             await process_and_upload_link(userbot, user_id, msg.id, link, 0, message)
                             await pin_msg.edit_text(
-                            f"Batch process started ⚡\n__Processing: {i - cs + 1}/{cl}__\n\n**__Powered by Team SPY__**",
+                            f"Batch process started ⚡\n__Processing: {i - cs + 1}/{cl}__\n\n**Powered by Team SPY**\n**🇩 🇮 🇬 🇬 🇮 🇩 🇮 🇬 🇮**",
                             reply_markup=keyboard
                             )
                     except Exception as e:
@@ -357,7 +357,7 @@ async def batch_link(_, message):
         await app.send_message(message.chat.id, "Batch completed successfully! 🎉")
         await set_interval(user_id, interval_minutes=20)
         await pin_msg.edit_text(
-                        f"Batch completed for {cl} messages ⚡\n\n**__Powered by Team SPY__**",
+                        f"Batch completed for {cl} messages ⚡\n\n**Powered by Team SPY**\n**🇩 🇮 🇬 🇬 🇮 🇩 🇮 🇬 🇮**",
                         reply_markup=keyboard
         )
     except FloodWait as fw:
