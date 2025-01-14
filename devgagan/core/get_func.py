@@ -290,7 +290,7 @@ async def get_msg(userbot, sender, edit_id, msg_link, i, message):
                 for word, replace_word in replacements.items():
                     final_caption = final_caption.replace(word, replace_word)
                 caption = f"{final_caption}\n\n__**{custom_caption}**__" if custom_caption else f"{final_caption}"
-                await handle_large_file(file, metadata, edit, caption, app, target_chat_id, file_extension, VIDEO_EXTENSIONS)
+                await handle_large_file(file, chatx, metadata, edit, caption, app, target_chat_id, file_extension, VIDEO_EXTENSIONS)
                 return
             if msg.voice:
                 result = await app.send_voice(target_chat_id, file)
@@ -301,6 +301,12 @@ async def get_msg(userbot, sender, edit_id, msg_link, i, message):
               caption = f"{final_caption}\n\n__**{custom_caption}**__" if custom_caption else f"{final_caption}"
               result = await app.send_audio(target_chat_id, file, caption=caption)
               await result.copy(LOG_GROUP)
+            elif msg.photo:
+              for word, replace_word in replacements.items():
+                final_caption = final_caption.replace(word, replace_word)
+              caption = f"{final_caption}\n\n__**{custom_caption}**__" if custom_caption else f"{final_caption}"
+              result = await app.send_photo(target_chat_id, file, caption=caption)
+              await result.copy(LOG_GROUP)            
             else:
               for word, replace_word in replacements.items():
                 final_caption = final_caption.replace(word, replace_word)
@@ -842,8 +848,8 @@ def progress_callback(done, total, user_id):
     user_data['previous_time'] = time.time()
     
     return final
-
-async def handle_large_file(file, metadata, edit, caption, app, target_chat_id, file_extension, VIDEO_EXTENSIONS):
+    
+async def handle_large_file(file, chatx, metadata, edit, caption, app, file_extension, VIDEO_EXTENSIONS):
     if pro is None:
         await edit.edit('**__ ❌ 4GB trigger not found__**')
         os.remove(file)
@@ -856,7 +862,7 @@ async def handle_large_file(file, metadata, edit, caption, app, target_chat_id, 
     width = metadata['width']
     height = metadata['height']
     thumb_path = await screenshot(file, duration, chatx)
-
+    target_chat_id = user_chat_ids.get(chatx, chatx)
     try:
         if file_extension in VIDEO_EXTENSIONS:
             # Send as video
