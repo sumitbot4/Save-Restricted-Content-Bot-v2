@@ -1,5 +1,5 @@
 <h1 align="center">
-  <b>V3 branch</b> | Summer Release V2
+  <b>master branch</b> | Winter Release V3
 </h1>
 
 [Telegram](https://t.me/save_restricted_content_bots) | [See Recent Updates](https://github.com/devgaganin/Save-Restricted-Content-Bot-V2/tree/v3#updates)
@@ -184,7 +184,7 @@ To run the bot, you'll need to configure a few sensitive variables. Here's how t
 - Fixed blocking and stopping of bot
 - Fixed public topic or not topic group extraction (no need of formatting link) login required
 - added upload method for public group also
-- added `freez` command to remove the expired user with summary (auto removal of funtion depreciated)
+- added `freez` command to remove the expired user with summary (auto removal of funtion is added but still if you want to execute)
 - rest explore the updates
 </details>
 
