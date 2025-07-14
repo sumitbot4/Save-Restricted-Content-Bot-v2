@@ -15,7 +15,7 @@ YTUB_COOKIES = """
 
 API_ID = int(getenv("API_ID", "21175909")
 API_HASH = getenv("API_HASH", "7416d74b021bea39a71446003843d11c")
-BOT_TOKEN = getenv("BOT_TOKEN", "")
+BOT_TOKEN = getenv("BOT_TOKEN", "7578652576:AAHnx7gkH3LTZ-tEI8gyQO5SaRt4Ljkz_zM")
 OWNER_ID = list(map(int, getenv("OWNER_ID", "1008926477").split()))
 MONGO_DB = getenv("MONGO_DB", "mongodb+srv://parisapna000:G4htErMAmO9ACL7D@cluster0.x1jurby.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 LOG_GROUP = getenv("LOG_GROUP", "1002669901448")
